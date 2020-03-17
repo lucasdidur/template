@@ -92,7 +92,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     form: {
         paddingLeft: 100,
         paddingRight: 100,
-        paddingBottom: 125,
         flexBasis: 700,
         [theme.breakpoints.down('sm')]: {
             paddingLeft: theme.spacing(2),
