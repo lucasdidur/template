@@ -1,13 +1,14 @@
 import React from 'react';
-import { Switch, Redirect } from 'react-router-dom';
+import {Redirect, Switch} from 'react-router-dom';
 
-import { RouteWithLayout } from './components';
-import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
+import {RouteWithLayout} from './components';
+import {Main as MainLayout, Minimal as MinimalLayout} from './layouts';
 
 import {
-  Dashboard as DashboardView,
-  SignIn as SignInView,
-  NotFound as NotFoundView
+    Account as AccountView,
+    Dashboard as DashboardView,
+    NotFound as NotFoundView,
+    SignIn as SignInView
 } from './views';
 
 const Routes = () => {
@@ -23,6 +24,11 @@ const Routes = () => {
         layout={MainLayout}
         path="/dashboard"
       />
+        <RouteWithLayout
+            component={AccountView}
+            layout={MainLayout}
+            path="/account"
+        />
       <RouteWithLayout
         component={SignInView}
         layout={MinimalLayout}
