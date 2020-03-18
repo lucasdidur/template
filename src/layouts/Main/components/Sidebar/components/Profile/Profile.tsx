@@ -1,9 +1,11 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, {useContext} from 'react';
+import {Link as RouterLink} from 'react-router-dom';
 import clsx from 'clsx';
 
-import { makeStyles } from '@material-ui/styles';
+import {makeStyles} from '@material-ui/styles';
 import {Avatar, Theme, Typography} from '@material-ui/core';
+import {User} from "firebase/app";
+import {AuthContext} from "../../../../../../Auth";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -23,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Profile = (props: ProfilePropTypes) => {
   const { className, ...rest } = props;
-
+  const currentUser = useContext<User | null>(AuthContext);
   const classes = useStyles();
 
   const user = {
-    name: 'Shen Zhi',
-    avatar: '/images/avatars/avatar_11.png',
+    name: currentUser?.displayName,
+    avatar: currentUser?.photoURL ?? undefined,
     bio: 'Brain Director'
   };
 

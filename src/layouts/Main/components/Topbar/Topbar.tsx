@@ -6,6 +6,7 @@ import {AppBar, Badge, Hidden, IconButton, Theme, Toolbar} from '@material-ui/co
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
+import firebase from 'firebase/app';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -25,6 +26,11 @@ const Topbar = (props: TopbarPropTypes) => {
     const classes = useStyles();
 
     const [notifications] = useState([]);
+
+    const handleSignOut = async (event: any) => {
+        event.preventDefault();
+        await firebase.auth().signOut();
+    };
 
     return (
         <AppBar
@@ -52,6 +58,7 @@ const Topbar = (props: TopbarPropTypes) => {
                     <IconButton
                         className={classes.signOutButton}
                         color="inherit"
+                        onClick={handleSignOut}
                     >
                         <InputIcon/>
                     </IconButton>
