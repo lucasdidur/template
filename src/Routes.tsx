@@ -1,16 +1,17 @@
 import React from 'react';
-import {Redirect, Switch} from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 
-import {RouteWithLayout} from './components';
-import {Main as MainLayout, Minimal as MinimalLayout} from './layouts';
+import { RouteWithLayout } from './components';
+import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
 import {
     Account as AccountView,
     Dashboard as DashboardView,
     NotFound as NotFoundView,
-    SignIn as SignInView
+    SignIn as SignInView,
+    UserList as UserListView,
 } from './views';
-import {AuthProvider} from "./Auth";
+import { AuthProvider } from "./Auth";
 
 const Routes = () => {
     return (
@@ -30,6 +31,11 @@ const Routes = () => {
                     component={AccountView}
                     layout={MainLayout}
                     path="/account"
+                />
+                <RouteWithLayout
+                    component={UserListView}
+                    layout={MainLayout}
+                    path="/users"
                 />
                 <RouteWithLayout
                     component={SignInView}
