@@ -11,7 +11,7 @@
     "helpers": "^0.0.6",
     "history": "^4.10.1",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "latest",
     "react-dom": "latest",
     "react-perfect-scrollbar": "^1.5.8",
